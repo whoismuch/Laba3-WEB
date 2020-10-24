@@ -8,7 +8,9 @@ function drawOnCanvas() {
     let yCenterClock = canvas.height/2;
 
     //Очистка экрана.
-    context.fillStyle = "#B0C4DE";
+    context.globalAlpha = 0.77;
+    context.fillStyle = "#ffffff";
+    context.globalAlpha = 1;
     context.fillRect(0,0,canvas.width,canvas.height);
 
     //Рисуем контур часов
@@ -37,16 +39,16 @@ function drawOnCanvas() {
     //Оцифровка циферблата часов
     for(var th = 1; th <= 12; th++){
         context.beginPath();
-        context.font = 'bold 30px sans-serif';
+        context.font = 'bold 32px sans-serif';
         var xText = xCenterClock + (radiusNum - 30) * Math.cos(-30*th*(Math.PI/180) + Math.PI/2);
         var yText = yCenterClock - (radiusNum - 30) * Math.sin(-30*th*(Math.PI/180) + Math.PI/2);
         if(th <= 9){
             context.strokeText(th, xText - 5 , yText + 10);
-            context.fillStyle = "#FFEFD5";
+            context.fillStyle = "#B0C4DE";
             context.fillText(th, xText-5, yText +10);
         }else{
             context.strokeText(th, xText - 15 , yText + 10);
-            context.fillStyle = "#FFEFD5";
+            context.fillStyle = "#B0C4DE";
             context.fillText(th, xText - 15 , yText + 10);
         }
         context.stroke();
