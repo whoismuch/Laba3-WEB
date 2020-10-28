@@ -4,8 +4,73 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Laba3</title>
+    <h:outputStylesheet name="main.css"/>
+</h:head>
+<h:body>
+    <div class="header">
+        <em>
+            <p style="color: purple; font-size: 35px" align="center">Байрамова Хумай</p>
+            <p style="color: purple" align="center">Вариант №2843</p>
+            <p style="color: purple" align="center">Группа №P3232</p>
+            <p style="color: #FFEFD5" align="center">pukpuk</p>
+        </em>
+    </div>
+
+    <div class="content">
+        <div class="centerBorder">
+            <h:form id="newPointForm">
+                <div class="commonGroup">
+                    <div class="fillItPls">Заполните тут все, позязя</div>
+                    <div class="XR">
+                        <div class="chooseR">
+
+                            <h:outputLabel class="chooseRTitle" value="Выберите R"/>
+                            <br></br>
+                            <h:commandButton styleClass="button" value="1"/>
+                            <h:commandButton styleClass="button" value="2"/>
+                            <h:commandButton styleClass="button" value="3"/>
+                            <h:commandButton styleClass="button" value="4"/>
+                            <h:commandButton styleClass="button" value="5"/>
+
+                        </div>
+
+                        <div class="selectX">
+                            <h:outputLabel value="Выберите X"/>
+                            <div class="ui-fluid">
+                                <p:spinner min="-3" max="3" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="enterY">
+                        <h:inputText class="enterYInner" name="enterY" type="text" pt:placeholder="Введите значение Y от -5 до 5"/>
+                    </div>
+
+                    <!--                    <div class="button">-->
+                    <!--                        <input class="butt" type="submit" name="sendButton" value="Отправить">-->
+                    <!--                    </div>-->
+
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="link">
+            <a id="github" href="https://github.com/whoismuch">
+                <h:graphicImage width="50" height="50" value="resources/doggy.png"/>
+                <h:outputLabel>GitHub</h:outputLabel>
+            </a>
+        </div>
+    </div>
+
+</h:body>
 </html>
+
+

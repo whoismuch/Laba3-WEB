@@ -10,7 +10,6 @@ p {
 
 canvas {
     display: block;
-    /*margin: 0 auto;*/
     padding-left: 70px;
     padding-right: 70px;
     margin-right: 30px;
@@ -22,7 +21,7 @@ canvas {
     background: papayawhip;
     padding: 3px;
     padding-top: 1px;
-    /*border-radius: 20px; !* Уголки *!*/
+    border-radius: 20px; /* Уголки */
     width: 100%;
 }
 
@@ -31,7 +30,16 @@ canvas {
     bottom: 0;
     background: papayawhip;
     padding-top: 10px;
+    border-radius: 20px; /* Уголки */
     width: 100%;
+}
+
+.button {
+    background-color: papayawhip;
+    border-color: #800080;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
 }
 
 .link {
@@ -44,7 +52,6 @@ a#move {
 }
 
 a#github {
-    margin-left: -20px;
     text-decoration: none;
     color: rgba(63, 63, 63, 0.98);
     font-size: 32px;
@@ -75,14 +82,14 @@ label {
 
 
 .commonGroup > .XR > * {
-    background: #63bee5;
+    background: rgba(159, 19, 255, 0.37);
     color: black;
     border-radius: 15px;
     opacity: 1;
 }
 
 .commonGroup > .fillItPls, .enterY {
-    background: #63bee5;
+    background: rgba(159, 19, 255, 0.37);
     color: black;
     border-radius: 15px;
     opacity: 1;
@@ -90,29 +97,38 @@ label {
 
 .commonGroup > .XR > .chooseR {
     padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 115px;
-    font-size: 17px;
+    width: 140px;
     text-align: center;
+}
+
+.chooseRTitle {
+    margin-bottom: 10px;
 }
 
 .commonGroup > .XR > .selectX {
     margin-left: 30px;
-    width: 110px;
+    width: 130px;
     height: 26px;
-    padding-top: 10px;
-    padding-left: 18px;
-    padding-bottom: 5px;
-    padding-right: 13px;
+    padding: 10px 13px 45px 18px;
 }
 
+.ui-fluid {
+    width: 120px;
+}
+
+.ui-spinner-input {
+    background-color: papayawhip;
+    border-color: #800080;
+    border-radius: 5px;
+    border-width: 2px;
+    font-family: "Comic Sans MS";
+}
 
 .commonGroup > .enterY {
     padding: 20px;
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: 20px;
-    width: 295px;
+    width: 310px;
     height: 27px;
 }
 
@@ -121,16 +137,22 @@ input[type=text] {
     width: 285px;
     font-size: 15px;
     text-align: center;
+    background-color: papayawhip;
+    border-color: #800080;
+    border-radius: 5px;
+
 }
 
 input::placeholder {
     text-align: center;
     font-size: 15px;
     color: black;
+    font-family: "Comic Sans MS"
+
 }
 
 .commonGroup > .button {
-    background: #63bee5;
+    background: rgba(159, 19, 255, 0.37);
     color: black;
     border-radius: 15px;
     opacity: 1;
@@ -157,6 +179,7 @@ input::placeholder {
 
 .XR {
     display: flex;
+    margin-top: 30px;
 }
 
 .fillItPls {
@@ -187,7 +210,7 @@ select {
 }
 
 table {
-    background: #63bee5;
+    background: rgba(159, 19, 255, 0.37);
     color: black;
     width: 100%; /* Ширина таблицы */
     border-spacing: 1px; /* Расстояние между ячейками */

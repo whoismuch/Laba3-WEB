@@ -22,5 +22,7 @@
     <orderEntry type="library" scope="PROVIDED" name="JBoss 21.0.0.Final" level="application_server_libraries" />
     <orderEntry type="library" name="Mojarra-2.4.0" level="project" />
     <orderEntry type="library" name="JBoss Weld-2.0.3" level="project" />
+    <orderEntry type="library" name="primefaces-6.1-sources" level="project" />
+    <orderEntry type="library" name="primefaces-6.1" level="project" />
   </component>
 </module>

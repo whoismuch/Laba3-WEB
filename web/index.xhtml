@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Laba3</title>
     <h:outputStylesheet name="main.css"/>
@@ -16,11 +17,11 @@
             <p style="color: purple; font-size: 35px" align="center">Байрамова Хумай</p>
             <p style="color: purple" align="center">Вариант №2843</p>
             <p style="color: purple" align="center">Группа №P3232</p>
+            <p style="color: rgba(63, 63, 63, 0.98)" align="center" id="date"></p>
         </em>
     </div>
 
     <div class="content">
-        <div id="date"></div>
         <div class="centerBorder">
             <canvas height='300' width='300' id='canvas'></canvas>
             <h:link id="move" value="Что ж, переезжаем" outcome="main"></h:link>
