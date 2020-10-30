@@ -43,18 +43,24 @@
                         <div class="selectX">
                             <h:outputLabel value="Выберите X"/>
                             <div class="ui-fluid">
-                                <p:spinner min="-3" max="3" />
+                                <p:spinner min="-3" max="3"/>
                             </div>
                         </div>
                     </div>
 
                     <div class="enterY">
-                        <h:inputText class="enterYInner" name="enterY" type="text" pt:placeholder="Введите значение Y от -5 до 5"/>
+                        <h:inputText class="enterYInner" name="enterY" type="text"
+                                     pt:placeholder="Введите значение Y от -5 до 5"/>
+
                     </div>
 
-                    <!--                    <div class="button">-->
-                    <!--                        <input class="butt" type="submit" name="sendButton" value="Отправить">-->
-                    <!--                    </div>-->
+                    <div class="checkButton">
+                        <h:commandButton value="Проверить" styleClass="checkButtonInside"/>
+                    </div>
+
+
+<!--                    <h:message for="enterY" style="color:red"/>-->
+                    
 
                 </div>
             </h:form>

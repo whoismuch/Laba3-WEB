@@ -42,6 +42,15 @@ canvas {
     width: 25px;
 }
 
+
+.checkButtonInside {
+    background-color: papayawhip;
+    border-color: #800080;
+    border-radius: 5px;
+    width: 130px;
+    height: 24px;
+}
+
 .link {
     text-align: center;
 }
@@ -55,8 +64,8 @@ a#github {
     text-decoration: none;
     color: rgba(63, 63, 63, 0.98);
     font-size: 32px;
-    display: flex;
 }
+
 
 label {
     padding-bottom: 10px;
@@ -126,7 +135,7 @@ label {
 
 .commonGroup > .enterY {
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 20px;
     width: 310px;
     height: 27px;
@@ -151,15 +160,12 @@ input::placeholder {
 
 }
 
-.commonGroup > .button {
+.commonGroup > .checkButton {
     background: rgba(159, 19, 255, 0.37);
     color: black;
     border-radius: 15px;
     opacity: 1;
-    padding-top: 7px;
-    padding-left: 18px;
-    padding-bottom: 5px;
-    padding-right: 18px;
+    padding: 7px 18px 12px;
     width: 130px;
     height: 30px;
     align-self: center;
@@ -170,6 +176,7 @@ input::placeholder {
 .button input {
     width: 130px;
     height: 24px;
+
 }
 
 
@@ -179,7 +186,7 @@ input::placeholder {
 
 .XR {
     display: flex;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .fillItPls {
@@ -241,9 +248,6 @@ circle#target-dot {
     color: red;
 }
 
-.link {
-    margin-left: 700px;
-}
 
 .centerBorderT {
     background: white; /* Цвет фона */
