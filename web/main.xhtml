@@ -33,20 +33,25 @@
                     <div class="XR">
                         <div class="chooseR">
 
-                            <h:outputLabel class="chooseRTitle" value="Выберите R" />
+                            <h:outputLabel class="chooseRTitle" value="Выберите R"/>
                             <br></br>
-                            <h:commandButton styleClass="button"  value="1" onclick="this.disabled = true; cancelButton(this); return false;" />
-                            <h:commandButton styleClass="button"  value="2" onclick="this.disabled = true; cancelButton(this); return false;" />
-                            <h:commandButton styleClass="button"  value="3" onclick="this.disabled = true; cancelButton(this); return false;"/>
-                            <h:commandButton styleClass="button"  value="4" onclick="this.disabled = true; cancelButton(this); return false;"/>
-                            <h:commandButton styleClass="button"  value="5" onclick="this.disabled = true; cancelButton(this); return false;"/>
+                            <h:commandButton styleClass="button" value="1"
+                                             onclick="this.disabled = true; cancelButton(this); return false;"/>
+                            <h:commandButton styleClass="button" value="2"
+                                             onclick="this.disabled = true; cancelButton(this); return false;"/>
+                            <h:commandButton styleClass="button" value="3"
+                                             onclick="this.disabled = true; cancelButton(this); return false;"/>
+                            <h:commandButton styleClass="button" value="4"
+                                             onclick="this.disabled = true; cancelButton(this); return false;"/>
+                            <h:commandButton styleClass="button" value="5"
+                                             onclick="this.disabled = true; cancelButton(this); return false;"/>
 
                         </div>
 
                         <div class="selectX">
                             <h:outputLabel class="selectXTitle" value="Выберите X"/>
                             <div class="ui-fluid">
-                                <p:spinner id="X" min="-3" max="3" required="true" />
+                                <p:spinner id="X" min="-3" max="3" required="true"/>
                             </div>
                         </div>
                     </div>
@@ -67,7 +72,7 @@
 
 
                     <div style="text-align: center; max-width: 350px; margin-top: 15px">
-                        <h:message id ="messageY" for="Y" style="color:red "/>
+                        <h:message id="messageY" for="Y" style="color:red "/>
                     </div>
 
 
@@ -114,15 +119,15 @@
                     <text class="axis-text" x="160" y="13">Y</text>
 
                     <!-- first figure-->
-                    <polygon class="rectangle-figure" points="150,150 200,150 200,250, 150,250"
+                    <polygon class="rectangle-figure" points="150,150 150,50 250,50, 250,150"
                              fill="blue" fill-opacity="0.7" stroke="blue"></polygon>
 
                     <!-- second figure-->
-                    <polygon class="triangle-figure" points="100,150 150,150 150,250"
+                    <polygon class="triangle-figure" points="50,150 150,150 150,50"
                              fill="blue" fill-opacity="0.7" stroke="blue"></polygon>
 
                     <!-- third figure-->
-                    <path class="circle-figure" d="M 50 150 A 100 100, 180, 0, 1, 150 50 L 150 150 Z"
+                    <path class="circle-figure" d="M 200 150 A 50 50, 180, 0, 1, 150 200 L 150 150 Z"
                           fill="blue" fill-opacity="0.7" stroke="blue"></path>
 
                     <polygon class="frame" points="0,0 0,300 300,300 300,0"></polygon>
