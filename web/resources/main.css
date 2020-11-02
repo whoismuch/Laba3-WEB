@@ -48,7 +48,9 @@ canvas {
     border-color: #800080;
     border-radius: 5px;
     width: 130px;
-    height: 24px;
+    height: 28px;
+    font-family: "Comic Sans MS";
+    font-size: 15px;
 }
 
 .link {
@@ -134,23 +136,23 @@ label {
 }
 
 .commonGroup > .enterY {
-    padding: 20px;
+    padding: 15px 20px 20px;
     margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     width: 310px;
     height: 27px;
 }
 
 input[type=text] {
     line-height: 25px;
-    width: 285px;
+    width: 302px;
     font-size: 15px;
     text-align: center;
     background-color: papayawhip;
     border-color: #800080;
     border-radius: 5px;
-
 }
+
 
 input::placeholder {
     text-align: center;
@@ -158,6 +160,10 @@ input::placeholder {
     color: black;
     font-family: "Comic Sans MS"
 
+}
+
+.input-error {
+    border-color: red !important;
 }
 
 .commonGroup > .checkButton {
@@ -175,7 +181,7 @@ input::placeholder {
 
 .button input {
     width: 130px;
-    height: 24px;
+    height: 28px;
 
 }
 
@@ -186,11 +192,10 @@ input::placeholder {
 
 .XR {
     display: flex;
-    margin-top: 10px;
 }
 
 .fillItPls {
-    margin-bottom: 23px;
+    margin-bottom: 15px;
     padding: 5px;
     text-align: center;
 }
