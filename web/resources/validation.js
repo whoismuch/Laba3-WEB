@@ -16,6 +16,7 @@ let isRSuccess = false;
 let isXSuccess = false;
 let isYSuccess = false;
 
+
 function cancelButton(button) {
     decision = button.value;
     if (!buttons.includes(button)) buttons.push(button);
@@ -25,40 +26,42 @@ function cancelButton(button) {
 }
 
 
-form.onsubmit = function (event) {
-
-    event.preventDefault();
-
-    if (decision == 0) {
-        chooseRTitle.style.color = 'red';
-        isRSuccess = false;
-    } else {
-        chooseRTitle.style = styleR;
-        isRSuccess = true;
-    }
-
-    if (!enterY.value) {
-        enterY.style.border = '2.5px solid red';
-        isYSuccess = false;
-    }
-    else {
-        enterY.style = styleY;
-        isYSuccess = true;
-    }
-
-    if (!selectX.value) {
-        selectXTitle.style.color = 'red';
-        isXSuccess = false;
-    }
-    else {
-        selectXTitle.style = styleX;
-        isXSuccess = true;
-    }
-
-    if (isRSuccess && isXSuccess && isYSuccess) form.submit();
-
-
-};
+// form.onsubmit = function (event) {
+//
+//     form.submit();
+//
+//     event.preventDefault();
+//
+//     if (decision == 0) {
+//         chooseRTitle.style.color = 'red';
+//         isRSuccess = false;
+//     } else {
+//         chooseRTitle.style = styleR;
+//         isRSuccess = true;
+//     }
+//
+//     if (!enterY.value) {
+//         enterY.style.border = '2.5px solid red';
+//         isYSuccess = false;
+//     }
+//     else {
+//         enterY.style = styleY;
+//         isYSuccess = true;
+//     }
+//
+//     if (!selectX.value) {
+//         selectXTitle.style.color = 'red';
+//         isXSuccess = false;
+//     }
+//     else {
+//         selectXTitle.style = styleX;
+//         isXSuccess = true;
+//     }
+//
+//     if (isRSuccess && isXSuccess && isYSuccess) form.submit();
+//
+//
+// };
 
 
 

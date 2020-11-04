@@ -87,10 +87,12 @@ label {
     width: 700px;
     height: 310px;
     opacity: 0.77;
-    display: flex;
     overflow: scroll;
 }
 
+.ff , .time-and-link{
+    display: flex;
+}
 
 .commonGroup > .XR > * {
     background: rgba(159, 19, 255, 0.37);
@@ -222,6 +224,7 @@ select {
 }
 
 table {
+    margin-top: 40px;
     background: rgba(159, 19, 255, 0.37);
     color: black;
     width: 100%; /* Ширина таблицы */

@@ -1,13 +1,13 @@
 import javafx.beans.property.adapter.JavaBeanBooleanProperty;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Named
-@RequestScoped
-public class PointsBean {
+public class PointsBean implements Serializable {
 
     private Point point = new Point( );
 
@@ -33,7 +33,7 @@ public class PointsBean {
         this.pointList = pointList;
     }
 
-    public void addEmployee ( ) {
+    public void addPoint ( ) {
         pointList.add(point);
         point = new Point( );
     }
