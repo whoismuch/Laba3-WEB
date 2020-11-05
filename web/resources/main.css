@@ -219,8 +219,9 @@ select {
     border-color: red;
 }
 
-.php {
-    color: black;
+.hiddenR-error ~ input[type=submit] {
+    border-width: 2.5px;
+    border-color: red !important;
 }
 
 table {

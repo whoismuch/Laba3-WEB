@@ -14,7 +14,6 @@
 <h:head>
     <title>Laba3</title>
     <h:outputStylesheet name="main.css"/>
-    <h:outputScript library="" name="validation.js"/>
 </h:head>
 <h:body>
     <div class="header">
@@ -36,18 +35,27 @@
                             <div class="XR">
                                 <div class="chooseR">
 
+
+
                                     <h:outputLabel class="chooseRTitle" value="Выберите R"/>
                                     <br></br>
-                                    <h:commandButton styleClass="button" value="1"
+
+
+                                    <h:inputText style="display: none; visibility: hidden" id="hiddenR" value="#{pointsBean.point.r}" required="true"  styleClass="#{not component.valid ? 'hiddenR-error' : ''}" >
+<!--                                        <f:ajax event="inputChange" render="b1 b2 b3 b4 b5 hiddenR" execute="hiddenR b1 b2 b3 b4 b5 "/>-->
+                                    </h:inputText>
+
+                                    <h:commandButton styleClass="button" value="1" id="b1"
+                                                     onclick="this.disabled = true; cancelButton(this); return false;" />
+                                    <h:commandButton styleClass="button" value="2" id="b2"
                                                      onclick="this.disabled = true; cancelButton(this); return false;"/>
-                                    <h:commandButton styleClass="button" value="2"
+                                    <h:commandButton styleClass="button" value="3" id="b3"
                                                      onclick="this.disabled = true; cancelButton(this); return false;"/>
-                                    <h:commandButton styleClass="button" value="3"
+                                    <h:commandButton styleClass="button" value="4" id="b4"
                                                      onclick="this.disabled = true; cancelButton(this); return false;"/>
-                                    <h:commandButton styleClass="button" value="4"
+                                    <h:commandButton styleClass="button" value="5" id="b5"
                                                      onclick="this.disabled = true; cancelButton(this); return false;"/>
-                                    <h:commandButton styleClass="button" value="5"
-                                                     onclick="this.disabled = true; cancelButton(this); return false;"/>
+
 
                                 </div>
 
@@ -56,7 +64,7 @@
                                     <div class="ui-fluid">
                                         <p:spinner id="X" min="-3" max="3" required="true"
                                                    value="#{pointsBean.point.x}">
-                                            <p:ajax event="change" update="selectXTitle" process="@this"/>
+<!--                                            <p:ajax event="change" update="selectXTitle" process="@this"/>-->
                                         </p:spinner>
                                     </div>
                                 </div>
@@ -67,15 +75,15 @@
                                              pt:placeholder="Введите значение Y от -5 до 5"
                                              required="true" value="#{pointsBean.point.y}" converterMessage="Вас же попросили: циферку от -5 до 5" requiredMessage="" validatorMessage="Вас же попросили: циферку от -5 до 5"
                                              styleClass="#{not component.valid ? 'input-error' : ''}">
-                                    <f:ajax event="valueChange" render="messageY Y" execute="X"/>
+<!--                                    <f:ajax event="click" render="messageY Y" execute="Y"/>-->
                                     <f:validateDoubleRange minimum="-5.0" maximum="5.0"/>
                                 </h:inputText>
                             </div>
 
                             <div class="checkButton">
-                                <h:commandButton id="checkButton" value="Проверить" action="#{pointsBean.addPoint()}"
+                                <h:commandButton id="checkButton" value="Проверить" onclick="" action="#{pointsBean.addPoint()}"
                                                  styleClass="checkButtonInside">
-                                    <f:ajax event="click" execute="newPointForm X Y" render="X Y messageY pointsTable"/>
+                                    <f:ajax event="click" execute="newPointForm X hiddenR Y " render="X Y messageY pointsTable hiddenR b1 b2 b3 b4 b5"/>
                                 </h:commandButton>
                             </div>
 

@@ -6,25 +6,41 @@ let chooseRTitle = document.querySelector('.chooseRTitle');
 let selectXTitle = document.querySelector('.selectXTitle');
 let selectX = document.getElementById("newPointForm:X_input");
 let enterY = document.getElementById("newPointForm:Y");
+let hiddenInputR = document.getElementById("newPointForm:hiddenR");
+
 
 let decision = 0;
-let styleR = chooseRTitle.style;
-let styleX = selectXTitle.style;
-let styleY = enterY.style;
-
-let isRSuccess = false;
-let isXSuccess = false;
-let isYSuccess = false;
+// let styleR = chooseRTitle.style;
+// let styleX = selectXTitle.style;
+// let styleY = enterY.style;
+//
+// let isRSuccess = false;
+// let isXSuccess = false;
+// let isYSuccess = false;
 
 
 function cancelButton(button) {
     decision = button.value;
+    hiddenInputR.value = decision;
+    console.log(hiddenInputR.value);
     if (!buttons.includes(button)) buttons.push(button);
     for (var i = 0; i < buttons.length; i++) {
         if (buttons[i].value != decision) buttons[i].disabled = false;
     }
 }
 
+window.onload = function () {
+    hiddenInputR.value = null;
+};
+// function checkButtons() {
+//     if (decision == 0) {
+//         chooseRTitle.style.color = 'red';
+//         isRSuccess = false;
+//     } else {
+//         chooseRTitle.style = styleR;
+//         isRSuccess = true;
+//     }
+// }
 
 // form.onsubmit = function (event) {
 //
