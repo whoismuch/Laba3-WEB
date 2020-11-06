@@ -1,6 +1,6 @@
 public class Point {
 
-    private Integer x;
+    private Double x;
     private Double y;
     private Integer r;
     private Boolean result;
@@ -13,11 +13,11 @@ public class Point {
         this.result = result;
     }
 
-    public Integer getX ( ) {
+    public Double getX ( ) {
         return x;
     }
 
-    public void setX (Integer x) {
+    public void setX (Double x) {
         this.x = x;
     }
 

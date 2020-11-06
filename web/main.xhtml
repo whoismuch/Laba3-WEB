@@ -36,7 +36,7 @@
                                 <div class="chooseR">
 
 
-                                    <h:outputLabel class="chooseRTitle" value="Выберите R"/>
+                                    <h:outputLabel id="chooseRTitle" class="chooseRTitle" value="Выберите R"/>
                                     <br></br>
 
 
@@ -61,6 +61,8 @@
                                 </div>
 
                                 <div class="selectX">
+
+                                    <h:inputHidden id="hiddenX" value="#{pointsBean.point.x}"/>
                                     <h:outputLabel id="selectXTitle" class="selectXTitle" value="Выберите X"/>
                                     <div class="ui-fluid">
                                         <p:spinner id="X" min="-3" max="3" required="true"
@@ -99,6 +101,18 @@
 
 
                         </div>
+                    </h:form>
+
+                    <h:form id="pointFromGraphic">
+                        <h:inputHidden id="hiddenXForGraphic" value="#{pointsBean.point.x}"/>
+
+                        <h:inputHidden id="hiddenRForGraphic" value="#{pointsBean.point.r}"/>
+
+                        <h:inputHidden id="hiddenYForGraphic" value="#{pointsBean.point.y}"/>
+
+                        <h:commandLink  action="#{pointsBean.addPoint()}" id="send"/>
+                            
+
                     </h:form>
 
 
@@ -153,7 +167,7 @@
                         <path class="circle-figure" d="M 200 150 A 50 50, 180, 0, 1, 150 200 L 150 150 Z"
                               fill="blue" fill-opacity="0.7" stroke="blue"></path>
 
-                        <polygon class="frame" points="0,0 0,300 300,300 300,0"></polygon>
+                        <polygon id="frame" class="frame" points="0,0 0,300 300,300 300,0"></polygon>
 
                     </svg>
                 </div>
@@ -173,7 +187,7 @@
                     <h:column>
                         <f:facet name="header">Y</f:facet>
                         <h:outputText value="#{point.y}">
-                            <f:convertNumber minFractionDigits="3"/>
+                            <f:convertNumber minFractionDigits="2"/>
                         </h:outputText>
                     </h:column>
 
