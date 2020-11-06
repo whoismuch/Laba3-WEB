@@ -17,6 +17,11 @@
 </h:head>
 <h:body>
     <div class="header">
+        <div class="linkToPrevious">
+            <a href="index.xhtml">
+                <h:graphicImage value="resources/strelkaWithoutBackground.png" width="80" height="50"/>
+            </a>
+        </div>
         <em>
             <p style="color: purple; font-size: 35px" align="center">Байрамова Хумай</p>
             <p style="color: purple" align="center">Вариант №2843</p>
@@ -110,8 +115,8 @@
 
                         <h:inputHidden id="hiddenYForGraphic" value="#{pointsBean.point.y}"/>
 
-                        <h:commandLink  action="#{pointsBean.addPoint()}" id="send"/>
-                            
+                        <h:commandLink action="#{pointsBean.addPoint()}" id="send"/>
+
 
                     </h:form>
 
@@ -181,7 +186,9 @@
                 <h:dataTable styleClass="table" value="#{pointsBean.pointList}" var="point">
                     <h:column>
                         <f:facet name="header">X</f:facet>
-                        #{point.x}
+                        <h:outputText value="#{point.x}">
+                            <f:convertNumber minFractionDigits="2"/>
+                        </h:outputText>
                     </h:column>
 
                     <h:column>
@@ -205,8 +212,11 @@
 
                 </h:dataTable>
 
-                <ui:repeat value="#{pointsBean.pointList}" var="point">
+                <h:outputScript>
+                    removeCircles();
+                </h:outputScript>
 
+                <ui:repeat value="#{pointsBean.pointList}" var="point">
                     <h:outputScript>
                         drawPoint(#{point.x}, #{point.y}, #{point.r}, #{point.result});
                     </h:outputScript>

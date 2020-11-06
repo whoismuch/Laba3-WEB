@@ -57,6 +57,10 @@ canvas {
     text-align: center;
 }
 
+.linkToPrevious {
+    position: absolute;
+}
+
 a#move {
     margin-top: 40px;
     font-size: 25px;
