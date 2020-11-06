@@ -36,17 +36,18 @@
                                 <div class="chooseR">
 
 
-
                                     <h:outputLabel class="chooseRTitle" value="Выберите R"/>
                                     <br></br>
 
 
-                                    <h:inputText style="display: none; visibility: hidden" id="hiddenR" value="#{pointsBean.point.r}" required="true"  styleClass="#{not component.valid ? 'hiddenR-error' : ''}" >
-<!--                                        <f:ajax event="inputChange" render="b1 b2 b3 b4 b5 hiddenR" execute="hiddenR b1 b2 b3 b4 b5 "/>-->
+                                    <h:inputText style="display: none; visibility: hidden" id="hiddenR"
+                                                 value="#{pointsBean.point.r}" required="true"
+                                                 styleClass="#{not component.valid ? 'hiddenR-error' : ''}">
+                                        <!--                                        <f:ajax event="inputChange" render="b1 b2 b3 b4 b5 hiddenR" execute="hiddenR b1 b2 b3 b4 b5 "/>-->
                                     </h:inputText>
 
                                     <h:commandButton styleClass="button" value="1" id="b1"
-                                                     onclick="this.disabled = true; cancelButton(this); return false;" />
+                                                     onclick="this.disabled = true; cancelButton(this); return false;"/>
                                     <h:commandButton styleClass="button" value="2" id="b2"
                                                      onclick="this.disabled = true; cancelButton(this); return false;"/>
                                     <h:commandButton styleClass="button" value="3" id="b3"
@@ -64,7 +65,7 @@
                                     <div class="ui-fluid">
                                         <p:spinner id="X" min="-3" max="3" required="true"
                                                    value="#{pointsBean.point.x}">
-<!--                                            <p:ajax event="change" update="selectXTitle" process="@this"/>-->
+                                            <!--                                            <p:ajax event="change" update="selectXTitle" process="@this"/>-->
                                         </p:spinner>
                                     </div>
                                 </div>
@@ -73,17 +74,21 @@
                             <div class="enterY">
                                 <h:inputText name="enterY" type="text" id="Y"
                                              pt:placeholder="Введите значение Y от -5 до 5"
-                                             required="true" value="#{pointsBean.point.y}" converterMessage="Вас же попросили: циферку от -5 до 5" requiredMessage="" validatorMessage="Вас же попросили: циферку от -5 до 5"
+                                             required="true" value="#{pointsBean.point.y}"
+                                             converterMessage="Вас же попросили: циферку от -5 до 5" requiredMessage=""
+                                             validatorMessage="Вас же попросили: циферку от -5 до 5"
                                              styleClass="#{not component.valid ? 'input-error' : ''}">
-<!--                                    <f:ajax event="click" render="messageY Y" execute="Y"/>-->
+                                    <!--                                    <f:ajax event="click" render="messageY Y" execute="Y"/>-->
                                     <f:validateDoubleRange minimum="-5.0" maximum="5.0"/>
                                 </h:inputText>
                             </div>
 
                             <div class="checkButton">
-                                <h:commandButton id="checkButton" value="Проверить" onclick="" action="#{pointsBean.addPoint()}"
+                                <h:commandButton id="checkButton" value="Проверить" onclick=""
+                                                 action="#{pointsBean.addPoint()}"
                                                  styleClass="checkButtonInside">
-                                    <f:ajax event="click" execute="newPointForm X hiddenR Y " render="X Y messageY pointsTable hiddenR b1 b2 b3 b4 b5"/>
+                                    <f:ajax event="click" execute="newPointForm X hiddenR Y "
+                                            render="X Y messageY pointsTable hiddenR b1 b2 b3 b4 b5"/>
                                 </h:commandButton>
                             </div>
 
@@ -96,12 +101,11 @@
                         </div>
                     </h:form>
 
-                    <h:outputScript name="validation.js"/>
 
                 </div>
 
                 <div class="svg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" class="svg-graph">
+                    <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="300" height="300" class="svg-graph">
 
                         <!--            Линии оси-->
 
@@ -156,6 +160,8 @@
             </div>
         </div>
 
+        <h:outputScript name="validation.js"/>
+
         <div class="table">
             <h:panelGroup id="pointsTable">
                 <h:dataTable styleClass="table" value="#{pointsBean.pointList}" var="point">
@@ -166,18 +172,37 @@
 
                     <h:column>
                         <f:facet name="header">Y</f:facet>
-                        #{point.y}
+                        <h:outputText value="#{point.y}">
+                            <f:convertNumber minFractionDigits="3"/>
+                        </h:outputText>
                     </h:column>
 
                     <h:column>
                         <f:facet name="header">R</f:facet>
                         #{point.r}
                     </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Result</f:facet>
+                        <h:outputText value=" #{pointsBean.isThePointIn(point)}">
+                            <f:converter converterId="resultConverter"/>
+                        </h:outputText>
+                    </h:column>
+
                 </h:dataTable>
+
+                <ui:repeat value="#{pointsBean.pointList}" var="point">
+
+                    <h:outputScript>
+                        drawPoint(#{point.x}, #{point.y}, #{point.r}, #{point.result});
+                    </h:outputScript>
+                </ui:repeat>
+
             </h:panelGroup>
         </div>
 
     </div>
+
 
     <div class="footer">
         <div class="link">

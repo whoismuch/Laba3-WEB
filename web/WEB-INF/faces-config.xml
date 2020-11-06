@@ -10,4 +10,9 @@
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
+    <converter>
+        <converter-id>resultConverter</converter-id>
+        <converter-class>ResultConverter</converter-class>
+    </converter>
+
 </faces-config>

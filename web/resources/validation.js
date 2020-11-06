@@ -1,28 +1,13 @@
-let button = document.getElementById("newPointForm:checkButton");
-let form = document.getElementById("newPointForm");
-let messageY = document.getElementById("newPointForm:messageY");
 let buttons = [];
-let chooseRTitle = document.querySelector('.chooseRTitle');
-let selectXTitle = document.querySelector('.selectXTitle');
-let selectX = document.getElementById("newPointForm:X_input");
-let enterY = document.getElementById("newPointForm:Y");
 let hiddenInputR = document.getElementById("newPointForm:hiddenR");
 
 
 let decision = 0;
-// let styleR = chooseRTitle.style;
-// let styleX = selectXTitle.style;
-// let styleY = enterY.style;
-//
-// let isRSuccess = false;
-// let isXSuccess = false;
-// let isYSuccess = false;
 
 
 function cancelButton(button) {
     decision = button.value;
     hiddenInputR.value = decision;
-    console.log(hiddenInputR.value);
     if (!buttons.includes(button)) buttons.push(button);
     for (var i = 0; i < buttons.length; i++) {
         if (buttons[i].value != decision) buttons[i].disabled = false;
@@ -32,54 +17,30 @@ function cancelButton(button) {
 window.onload = function () {
     hiddenInputR.value = null;
 };
-// function checkButtons() {
-//     if (decision == 0) {
-//         chooseRTitle.style.color = 'red';
-//         isRSuccess = false;
-//     } else {
-//         chooseRTitle.style = styleR;
-//         isRSuccess = true;
-//     }
-// }
 
-// form.onsubmit = function (event) {
-//
-//     form.submit();
-//
-//     event.preventDefault();
-//
-//     if (decision == 0) {
-//         chooseRTitle.style.color = 'red';
-//         isRSuccess = false;
-//     } else {
-//         chooseRTitle.style = styleR;
-//         isRSuccess = true;
-//     }
-//
-//     if (!enterY.value) {
-//         enterY.style.border = '2.5px solid red';
-//         isYSuccess = false;
-//     }
-//     else {
-//         enterY.style = styleY;
-//         isYSuccess = true;
-//     }
-//
-//     if (!selectX.value) {
-//         selectXTitle.style.color = 'red';
-//         isXSuccess = false;
-//     }
-//     else {
-//         selectXTitle.style = styleX;
-//         isXSuccess = true;
-//     }
-//
-//     if (isRSuccess && isXSuccess && isYSuccess) form.submit();
-//
-//
-// };
+function drawPoint(x, y, r, result) {
+
+    console.log(x);
+    console.log(y);
+    console.log(r);
+    console.log(result);
+
+    const xmlns = "http://www.w3.org/2000/svg";
+
+    let svg = document.getElementById("svg");
+    let circle = document.createElementNS(xmlns, "circle");
+    circle.setAttribute('cx', 150 + x / r * 100);
+    circle.setAttribute('cy', 150 - y / r * 100);
+    circle.setAttribute('r', 3);
 
 
+    if (result) circle.style.fill = 'green';
+    else circle.style.fill = 'red';
+
+    svg.appendChild(circle)
+
+
+}
 
 
 

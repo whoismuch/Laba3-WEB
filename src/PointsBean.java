@@ -17,6 +17,19 @@ public class PointsBean implements Serializable {
 
     }
 
+    public Boolean isThePointIn (Point point) {
+
+        if (point.getX()>=0 && point.getX() <= point.getR() && point.getY() >=0 && point.getY() <= point.getR()
+        || point.getX()>=0 && point.getY() <= 0 && (point.getX()*point.getX()+point.getY()*point.getY()<= (point.getR()*point.getR())/4)
+        || point.getX()<=0 && point.getY() >= 0 && point.getY()<= point.getX() + point.getR()) {
+            point.setResult(true);
+        }
+
+        else point.setResult(false);
+
+        return point.getResult();
+    }
+
     public Point getPoint ( ) {
         return point;
     }
