@@ -11,6 +11,16 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <datasource-mapping>
+          <factory-entry name="postgres" />
+        </datasource-mapping>
+        <naming-strategy-map />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -24,5 +34,8 @@
     <orderEntry type="library" name="JBoss Weld-2.0.3" level="project" />
     <orderEntry type="library" name="primefaces-6.1-sources" level="project" />
     <orderEntry type="library" name="primefaces-6.1" level="project" />
+    <orderEntry type="library" name="JPA 1.0-JPA 1.0" level="project" />
+    <orderEntry type="library" name="eclipselink" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.12" level="project" />
   </component>
 </module>

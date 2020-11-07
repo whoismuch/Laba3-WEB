@@ -1,5 +1,6 @@
 import javafx.beans.property.adapter.JavaBeanBooleanProperty;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -28,6 +29,11 @@ public class PointsBean implements Serializable {
         else point.setResult(false);
 
         return point.getResult();
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+    DataBase dataBase = new DataBase();
     }
 
     public Point getPoint ( ) {

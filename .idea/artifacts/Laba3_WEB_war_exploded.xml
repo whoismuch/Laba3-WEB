@@ -9,6 +9,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="primefaces-6.1" />
+          <element id="library" level="project" name="postgresql-42.2.12" />
+          <element id="library" level="project" name="eclipselink" />
         </element>
       </element>
     </root>
