@@ -5,12 +5,15 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PointsBean implements Serializable {
 
     private Point point = new Point( );
+
+    private DataBase dataBase;
 
     private List<Point> pointList = new ArrayList<Point>( );
 
@@ -20,20 +23,20 @@ public class PointsBean implements Serializable {
 
     public Boolean isThePointIn (Point point) {
 
-        if (point.getX()>=0 && point.getX() <= point.getR() && point.getY() >=0 && point.getY() <= point.getR()
-        || point.getX()>=0 && point.getY() <= 0 && (point.getX()*point.getX()+point.getY()*point.getY()<= (point.getR()*point.getR())/4)
-        || point.getX()<=0 && point.getY() >= 0 && point.getY()<= point.getX() + point.getR()) {
+        if (point.getX( ) >= 0 && point.getX( ) <= point.getR( ) && point.getY( ) >= 0 && point.getY( ) <= point.getR( )
+                || point.getX( ) >= 0 && point.getY( ) <= 0 && (point.getX( ) * point.getX( ) + point.getY( ) * point.getY( ) <= (point.getR( ) * point.getR( )) / 4)
+                || point.getX( ) <= 0 && point.getY( ) >= 0 && point.getY( ) <= point.getX( ) + point.getR( )) {
             point.setResult(true);
-        }
+        } else point.setResult(false);
 
-        else point.setResult(false);
-
-        return point.getResult();
+        return point.getResult( );
     }
 
     @PostConstruct
-    public void postConstruct() {
-    DataBase dataBase = new DataBase();
+    public void postConstruct ( ) throws SQLException {
+        dataBase = new DataBase( );
+        pointList = dataBase.getPointsFromDB( );
+        System.out.println(1);
     }
 
     public Point getPoint ( ) {
@@ -53,8 +56,13 @@ public class PointsBean implements Serializable {
     }
 
     public void addPoint ( ) {
+        isThePointIn(point);
         pointList.add(point);
-        point = new Point( );
+        for (Point pointt : pointList) {
+            System.out.println(pointt.getX( ) + " " + pointt.getY( ));
+        }
+        dataBase.addPointToDB(point);
+        point = new Point();
     }
 
 }
