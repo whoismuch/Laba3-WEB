@@ -36,7 +36,6 @@ public class PointsBean implements Serializable {
     public void postConstruct ( ) throws SQLException {
         dataBase = new DataBase( );
         pointList = dataBase.getPointsFromDB( );
-        System.out.println(1);
     }
 
     public Point getPoint ( ) {
@@ -58,9 +57,6 @@ public class PointsBean implements Serializable {
     public void addPoint ( ) {
         isThePointIn(point);
         pointList.add(point);
-        for (Point pointt : pointList) {
-            System.out.println(pointt.getX( ) + " " + pointt.getY( ));
-        }
         dataBase.addPointToDB(point);
         point = new Point();
     }
