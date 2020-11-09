@@ -4,34 +4,36 @@ import org.eclipse.persistence.internal.sessions.UnitOfWorkImpl;
 import org.eclipse.persistence.jpa.JpaEntityManager;
 import org.eclipse.persistence.sessions.Session;
 
+import javax.annotation.Resource;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionManagement;
 import javax.persistence.*;
+import javax.transaction.*;
+import javax.transaction.RollbackException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-
 public class DataBase {
 
-    EntityManagerFactory emf;
 
-    public DataBase ( ) throws SQLException {
-        emf = Persistence.createEntityManagerFactory("postgres");
-    }
+    @PersistenceContext(unitName = "postgres")
+    private static EntityManager em;
 
-    public List<Point> getPointsFromDB ( ) {
-        EntityManager em = emf.createEntityManager();
+    @Resource
+    private static UserTransaction userTransaction;
+
+    public static List<Point> getPointsFromDB ( ) {
         Query query = em.createQuery("select p from Point p");
         return query.getResultList( );
     }
 
-    public void addPointToDB (Point point) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction( ).begin( );
+    public static void addPointToDB (Point point) throws Exception{
+        userTransaction.begin();
         em.persist(point);
-        em.getTransaction( ).commit( );
-        em.close();
+        userTransaction.commit();
     }
 
 

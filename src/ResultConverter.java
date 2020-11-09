@@ -6,8 +6,8 @@ public class ResultConverter implements Converter {
 
     @Override
     public Object getAsObject (FacesContext facesContext, UIComponent uiComponent, String s) {
-        if (Boolean.valueOf(s).equals(true)) return "А ты хорош";
-        else return "Loser";
+        if (s.equals("А ты хорош")) return true;
+        else return false;
     }
 
     @Override
