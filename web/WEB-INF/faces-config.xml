@@ -8,6 +8,11 @@
         <managed-bean-name>pointsBean</managed-bean-name>
         <managed-bean-class>PointsBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>dataBase</property-name>
+            <property-class>DataBase</property-class>
+            <value>#{dataBaseBean}</value>
+        </managed-property>
     </managed-bean>
     
     <managed-bean>

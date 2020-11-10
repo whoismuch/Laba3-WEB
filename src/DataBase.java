@@ -20,17 +20,17 @@ public class DataBase {
 
 
     @PersistenceContext(unitName = "postgres")
-    private static EntityManager em;
+    private EntityManager em;
 
     @Resource
-    private static UserTransaction userTransaction;
+    private UserTransaction userTransaction;
 
-    public static List<Point> getPointsFromDB ( ) {
+    public List<Point> getPointsFromDB ( ) {
         Query query = em.createQuery("select p from Point p");
         return query.getResultList( );
     }
 
-    public static void addPointToDB (Point point) throws Exception{
+    public  void addPointToDB (Point point) throws Exception{
         userTransaction.begin();
         em.persist(point);
         userTransaction.commit();

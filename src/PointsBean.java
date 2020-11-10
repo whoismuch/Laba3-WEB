@@ -15,7 +15,14 @@ public class PointsBean implements Serializable {
 
     private Point point = new Point( );
 
-    @Inject
+    public DataBase getDataBase ( ) {
+        return dataBase;
+    }
+
+    public void setDataBase (DataBase dataBase) {
+        this.dataBase = dataBase;
+    }
+
     private DataBase dataBase;
 
     private List<Point> pointList = new ArrayList<Point>( );
@@ -37,7 +44,7 @@ public class PointsBean implements Serializable {
 
     @PostConstruct
     public void postConstruct ( ) throws SQLException {
-        pointList = DataBase.getPointsFromDB( );
+        pointList = dataBase.getPointsFromDB( );
     }
 
     public Point getPoint ( ) {
