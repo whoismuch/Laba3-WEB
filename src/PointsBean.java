@@ -1,12 +1,7 @@
-import javafx.beans.property.adapter.JavaBeanBooleanProperty;
-
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +10,17 @@ public class PointsBean implements Serializable {
 
     private Point point = new Point( );
 
-    public DataBase getDataBase ( ) {
-        return dataBase;
-    }
-
-    public void setDataBase (DataBase dataBase) {
-        this.dataBase = dataBase;
-    }
-
     private DataBase dataBase;
 
     private List<Point> pointList = new ArrayList<Point>( );
 
     public PointsBean ( ) {
 
+    }
+
+    @PostConstruct
+    public void postConstruct ( ) throws SQLException {
+        pointList = dataBase.getPointsFromDB( );
     }
 
     public Boolean isThePointIn (Point point) {
@@ -42,9 +34,11 @@ public class PointsBean implements Serializable {
         return point.getResult( );
     }
 
-    @PostConstruct
-    public void postConstruct ( ) throws SQLException {
-        pointList = dataBase.getPointsFromDB( );
+    public void addPoint ( ) throws Exception {
+        isThePointIn(point);
+        pointList.add(point);
+        dataBase.addPointToDB(point);
+        point = new Point();
     }
 
     public Point getPoint ( ) {
@@ -63,11 +57,14 @@ public class PointsBean implements Serializable {
         this.pointList = pointList;
     }
 
-    public void addPoint ( ) throws Exception {
-        isThePointIn(point);
-        pointList.add(point);
-        dataBase.addPointToDB(point);
-        point = new Point();
+    public DataBase getDataBase ( ) {
+        return dataBase;
     }
+
+    public void setDataBase (DataBase dataBase) {
+        this.dataBase = dataBase;
+    }
+
+
 
 }
