@@ -34,6 +34,15 @@ public class DataBase {
         userTransaction.begin();
         em.persist(point);
         userTransaction.commit();
+//        help();
+    }
+
+    public void help() throws SystemException, NotSupportedException, HeuristicRollbackException, HeuristicMixedException, RollbackException {
+        userTransaction.begin();
+        Point point = em.find(Point.class, 48);
+        point.setX(173.0);
+        em.persist(point);
+        userTransaction.commit();
     }
 
 
